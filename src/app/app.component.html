@@ -1,6 +1,13 @@
 <div class="container">
-  <app-header> </app-header>
   <!-- <router-outlet></router-outlet> -->
-  <app-main></app-main>
-  <app-footer></app-footer>
+  <h3>Welcome {{ firstName }} {{ lastName }}</h3>
+  <h1 [innerText]="title"></h1>
+  <h2>Example 1</h2>
+  <button [disabled]="isDisabled">I'm disabled</button>
+  <button (click)="onClick()">Click me!</button>
+
+  <h1>Two-way binding</h1>
+  <input type="text" [(ngModel)]="name" />
+  <p>You entered {{ name }}</p>
+  <button (click)="clearName()">Clear</button>
 </div>

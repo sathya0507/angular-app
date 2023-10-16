@@ -6,6 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-demo-app';
-  greeting = 'Learning Angular';
+  title = 'angular-property-binding-example';
+  firstName = 'jhon';
+  lastName = 'Doe';
+  isDisabled = true;
+  name = 'jhon doe';
+
+  onClick() {
+    // alert('im clicked');
+    this.title =
+      'im been clicked this is one-way binding from view to component';
+  }
+
+  clearName() {
+    this.name = '';
+  }
 }
