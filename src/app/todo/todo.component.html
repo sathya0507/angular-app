@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>{{ name }}</h1>
+  <form>
+    <label for="#newToDo">Tittle:</label>
+    <input type="text" #newToDo />
+    <label for="#newPriority">Priority:</label>
+    <input type="text" #newPriority />
+    <label for="#newDone">Done:</label>
+    <input type="text" #newDone />
+    <button (click)="addToDo(newToDo.value, newPriority.value, newDone.value)">
+      Add ToDo
+    </button>
+  </form>
+</div>

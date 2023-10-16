@@ -1,0 +1,21 @@
+.container {
+  width: calc(100vw - 300px);
+  height: calc(100vh - 200px);
+  //   background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+}
+
+button {
+  grid-column: 2;
+  margin: auto;
+  background-color: black;
+}

@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 button {
   width: 100px;
   border-radius: 30px;

@@ -39,3 +39,15 @@ a. style binding
 b. ngStyle derective
 
 \*\*from view to component
+
+how to change the prefix name of the component
+--prefix <prefix-name>
+
+create component
+ng g c <component-name>
+
+for skiping test
+--skip-tests
+
+for view before run
+--dry-run
