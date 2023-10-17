@@ -6,15 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent {
-  name = 'Todo List App';
-  todos = [{}];
-  addToDo(newToDoTittle: string, newPriority: string, newDone: string) {
+  name = 'Angular Template Driven Forms';
+  todo: Itodo = {
+    name: '',
+    Priority: 0,
+    done: false,
+  };
+  // todos: Itodo[] ;
+  addToDo() {
     let newtodo = {
-      tittle: newToDoTittle,
-      priority: newPriority,
-      done: newDone,
+      name: this.todo.name,
+      priority: this.todo.Priority,
+      done: this.todo.done,
     };
-    this.todos.push(newtodo);
-    console.log(this.todos);
+    // this.todos.push(newtodo);
+    console.log(newtodo);
   }
+}
+export interface Itodo {
+  name: string;
+  Priority: number;
+  done: boolean;
 }

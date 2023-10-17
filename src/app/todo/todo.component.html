@@ -1,14 +1,40 @@
 <div class="container">
   <h1>{{ name }}</h1>
-  <form>
-    <label for="#newToDo">Tittle:</label>
-    <input type="text" #newToDo />
-    <label for="#newPriority">Priority:</label>
-    <input type="text" #newPriority />
-    <label for="#newDone">Done:</label>
-    <input type="text" #newDone />
-    <button (click)="addToDo(newToDo.value, newPriority.value, newDone.value)">
-      Add ToDo
-    </button>
+  <form #todoForm="ngForm">
+    <label for="newToDo">ToDo:</label>
+    <input
+      name="Name"
+      placeholder="Enter a ToDo"
+      type="text"
+      id="newToDo"
+      required
+      [(ngModel)]="todo.name"
+    />
+    <label for="newPriority">Priority:</label>
+    <input
+      name="Priority"
+      type="number"
+      id="newPriority"
+      required
+      [(ngModel)]="todo.Priority"
+    />
+    <label for="newDone">Done:</label>
+    <input
+      name="Done"
+      type="checkbox"
+      id="newDone"
+      required
+      [(ngModel)]="todo.done"
+    />
+    <button type="button" (click)="addToDo()">Add ToDo</button>
   </form>
+  <h3>Form Data</h3>
+  {{ todo | json }}
+  <h3>Form State</h3>
+  <p>Valid: {{ todoForm.valid }}</p>
+  <p>Pristine: {{ todoForm.pristine }}</p>
+  <p>Touch: {{ todoForm.touched }}</p>
+  <p>Submitted: {{ todoForm.submitted }}</p>
 </div>
+
+<!-- json-pipe "|" -->
