@@ -9,17 +9,19 @@ import { NgForm } from '@angular/forms';
 export class TodoComponent {
   name = 'Angular Template Driven Forms';
   todo: Itodo = {
-    tittle: 'sathya',
-    priority: 1,
-    done: true,
+    tittle: '',
+    priority: 0,
+    done: false,
   };
   todos: Itodo[] = [];
+
   addToDo(todoForm: NgForm) {
-    this.todos.push(todoForm.value);
+    this.todos.push({ ...todoForm.value });
     console.log(this.todos);
     todoForm.reset();
   }
 }
+
 export interface Itodo {
   tittle: string;
   priority: number;
