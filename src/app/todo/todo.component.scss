@@ -19,3 +19,8 @@ button {
   margin: auto;
   background-color: black;
 }
+button:disabled {
+  grid-column: 2;
+  margin: auto;
+  background-color: rgb(183, 182, 182);
+}

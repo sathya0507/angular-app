@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'ui-todo',
@@ -8,23 +9,19 @@ import { Component } from '@angular/core';
 export class TodoComponent {
   name = 'Angular Template Driven Forms';
   todo: Itodo = {
-    name: '',
-    Priority: 0,
-    done: false,
+    tittle: 'sathya',
+    priority: 1,
+    done: true,
   };
-  // todos: Itodo[] ;
-  addToDo() {
-    let newtodo = {
-      name: this.todo.name,
-      priority: this.todo.Priority,
-      done: this.todo.done,
-    };
-    // this.todos.push(newtodo);
-    console.log(newtodo);
+  todos: Itodo[] = [];
+  addToDo(todoForm: NgForm) {
+    this.todos.push(todoForm.value);
+    console.log(this.todos);
+    todoForm.reset();
   }
 }
 export interface Itodo {
-  name: string;
-  Priority: number;
+  tittle: string;
+  priority: number;
   done: boolean;
 }
