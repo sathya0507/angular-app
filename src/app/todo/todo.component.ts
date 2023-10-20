@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 export class TodoComponent {
   name = 'Angular Template Driven Forms';
   todo: Itodo = {
-    tittle: '',
+    title: '',
     priority: 0,
     done: false,
   };
@@ -23,7 +23,7 @@ export class TodoComponent {
 }
 
 export interface Itodo {
-  tittle: string;
+  title: string;
   priority: number;
   done: boolean;
 }

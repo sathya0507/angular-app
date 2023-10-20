@@ -1,18 +1,18 @@
 <div class="container">
   <h1>{{ name }}</h1>
   <form #todoForm="ngForm">
-    <label for="tittle">ToDo:</label>
+    <label for="title">ToDo:</label>
     <input
-      name="Tittle"
+      name="title"
       placeholder="Enter a ToDo"
       type="text"
-      #tittle="ngModel"
+      #title="ngModel"
       required
-      [(ngModel)]="todo.tittle"
+      [(ngModel)]="todo.title"
     />
     <label for="priority">Priority:</label>
     <input
-      name="Priority"
+      name="priority"
       type="number"
       #priority="ngModel"
       required
@@ -20,7 +20,7 @@
     />
     <label for="done">Done:</label>
     <input
-      name="Done"
+      name="done"
       type="checkbox"
       #done="ngModel"
       required
@@ -34,33 +34,10 @@
       Add ToDo
     </button>
   </form>
-  <!-- <h3>Form Data</h3>
-  {{ todo | json }}
-  <h3>Form State</h3>
-  <p>Valid: {{ todoForm.valid }}</p>
-  <p>Pristine: {{ todoForm.pristine }}</p>
-  <p>Touch: {{ todoForm.touched }}</p>
-  <p>Submitted: {{ todoForm.submitted }}</p> -->
-  <div>
-    <!-- <table>
-      <tr>
-        <th>ToDo</th>
-        <th>Priority</th>
-        <th>Done</th>
-      </tr>
-      <tr *ngFor="let todo of todos">
-        <td>{{ todo.tittle }}</td>
-        <td>{{ todo.priority }}</td>
-        <td>{{ todo.done ? "&#10003; " : "&#310005;" }}</td> -->
-    <!-- <td>{{ todo | json }}</td> -->
-    <!-- <td>{{ todo.tittle }}</td> -->
-    <!-- </tr>
-    </table> -->
-    <ul *ngFor="let todo of todos">
-      <li>{{ todo | json }}</li>
-      <li>{{ todo.tittle }}</li>
-    </ul>
-  </div>
-</div>
 
-<!-- json-pipe "|" -->
+  <ul *ngFor="let todo of todos">
+    <li>{{ todo.title }}</li>
+    <li>{{ todo.priority }}</li>
+    <li>{{ todo.done ? "Done" : "Not Done" }}</li>
+  </ul>
+</div>
