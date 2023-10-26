@@ -16,9 +16,17 @@ export class TodoComponent {
   todos: Itodo[] = [];
 
   addToDo(todoForm: NgForm) {
-    this.todos.push({ ...todoForm.value });
-    console.log(this.todos);
-    todoForm.reset();
+    if (todoForm.valid) {
+      this.todos.push({ ...todoForm.value });
+      console.log(this.todos);
+      todoForm.reset();
+    } else {
+      alert('Invalid input data');
+    }
+  }
+
+  deleteToDo(todo: Itodo) {
+    this.todos = this.todos.filter((t) => t.title !== todo.title);
   }
 }
 

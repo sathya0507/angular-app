@@ -10,8 +10,18 @@
 
 form {
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr;
   gap: 10px;
+}
+.form-items {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  // background-color: rebeccapurple;
+}
+
+label {
+  font-weight: 900;
 }
 
 button {
@@ -19,8 +29,16 @@ button {
   margin: auto;
   background-color: black;
 }
+
 button:disabled {
   grid-column: 2;
   margin: auto;
   background-color: rgb(183, 182, 182);
+}
+
+table {
+  width: 600px;
+}
+th {
+  text-align: left;
 }
