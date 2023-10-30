@@ -1,7 +1,6 @@
 .container {
   width: calc(100vw - 300px);
   height: calc(100vh - 200px);
-  //   background-color: lightgray;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +16,6 @@ form {
 .form-items {
   display: grid;
   grid-template-columns: 75px 1fr;
-  // background-color: rebeccapurple;
 }
 
 label {

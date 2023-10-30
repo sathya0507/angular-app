@@ -46,7 +46,9 @@
     <tr *ngFor="let todo of todos">
       <td>{{ todo.title }}</td>
       <td>{{ todo.priority }}</td>
-      <td>{{ todo.done ? "Done" : "Not Done" }}</td>
+      <td>
+        <input type="checkbox" [(ngModel)]="todo.done" />
+      </td>
       <td>
         <button style="background-color: red" (click)="deleteToDo(todo)">
           delete
