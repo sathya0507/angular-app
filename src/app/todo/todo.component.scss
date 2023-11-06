@@ -18,6 +18,10 @@ form {
   grid-template-columns: 75px 1fr;
 }
 
+.error {
+  grid-column: 2;
+  color: red;
+}
 label {
   font-weight: 900;
 }

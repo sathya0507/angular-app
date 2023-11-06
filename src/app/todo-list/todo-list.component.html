@@ -1,0 +1,21 @@
+<div>
+  <table width="600px">
+    <th width="50%">Title</th>
+    <th width="20%">Priority</th>
+    <th width="20%">Done</th>
+    <th width="10%">Action</th>
+
+    <tr *ngFor="let todo of toDoList">
+      <td>{{ todo.title }}</td>
+      <td>{{ todo.priority }}</td>
+      <td>
+        <input type="checkbox" [(ngModel)]="todo.done" />
+      </td>
+      <td>
+        <button style="background-color: red" (click)="deleteItem(todo)">
+          delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

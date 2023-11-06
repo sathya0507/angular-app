@@ -1,0 +1,16 @@
+<div>
+  <h1>Parent</h1>
+  <form #parent="ngForm">
+    <label for="name">name</label>
+    <input
+      type="text"
+      name="firstName"
+      #name="ngModel"
+      [(ngModel)]="firstName"
+    />
+  </form>
+  <div>
+    {{ firstName }}
+  </div>
+</div>
+<app-child [pData]="firstName"></app-child>
