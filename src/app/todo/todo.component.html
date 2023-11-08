@@ -1,4 +1,5 @@
-<div class="container">
+<!-- <div class="container"> -->
+<section>
   <h1 class="title">{{ name }}</h1>
   <div class="todos">
     <form #todoForm="ngForm">
@@ -45,13 +46,24 @@
           [(ngModel)]="todo.done"
         />
       </div>
-      <div class="form-items">
+      <!-- <div class="form-items">
         <button
           type="button"
           (click)="addToDo(todoForm)"
           [disabled]="!todoForm.form.valid"
         >
           Add ToDo
+        </button>
+      </div> -->
+      <div>
+        <button
+          mat-button-raised
+          color="primary"
+          type="button"
+          (click)="addToDo(todoForm)"
+          [disabled]="!todoForm.form.valid"
+        >
+          Add TO-DO
         </button>
       </div>
     </form>
@@ -60,4 +72,5 @@
       </app-todo-list>
     </div>
   </div>
-</div>
+  <!-- </div> -->
+</section>
