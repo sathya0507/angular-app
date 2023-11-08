@@ -1,59 +1,63 @@
 <div class="container">
-  <h1>{{ name }}</h1>
-  <form #todoForm="ngForm">
-    <div class="form-items">
-      <label for="title">ToDo:</label>
-      <input
-        name="title"
-        placeholder="Enter a ToDo"
-        type="text"
-        #title="ngModel"
-        required
-        [(ngModel)]="todo.title"
-      />
-      <div
-        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
-        class="error"
-      >
-        <p>Tittle is required</p>
+  <h1 class="title">{{ name }}</h1>
+  <div class="todos">
+    <form #todoForm="ngForm">
+      <div class="form-items">
+        <label for="title">ToDo:</label>
+        <input
+          name="title"
+          placeholder="Enter a ToDo"
+          type="text"
+          #title="ngModel"
+          required
+          [(ngModel)]="todo.title"
+        />
+        <div
+          *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+          class="error"
+        >
+          <p>Tittle is required</p>
+        </div>
       </div>
-    </div>
 
-    <div class="form-items">
-      <label for="priority">Priority:</label>
-      <input
-        name="priority"
-        type="number"
-        #priority="ngModel"
-        required
-        [(ngModel)]="todo.priority"
-      />
-      <div
-        *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)"
-        class="error"
-      >
-        <p>Priority is required</p>
+      <div class="form-items">
+        <label for="priority">Priority:</label>
+        <input
+          name="priority"
+          type="number"
+          #priority="ngModel"
+          required
+          [(ngModel)]="todo.priority"
+        />
+        <div
+          *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)"
+          class="error"
+        >
+          <p>Priority is required</p>
+        </div>
       </div>
+      <div class="form-items">
+        <label for="done">Done:</label>
+        <input
+          name="done"
+          type="checkbox"
+          #done="ngModel"
+          [(ngModel)]="todo.done"
+        />
+      </div>
+      <div class="form-items">
+        <button
+          type="button"
+          (click)="addToDo(todoForm)"
+          [disabled]="!todoForm.form.valid"
+        >
+          Add ToDo
+        </button>
+      </div>
+    </form>
+    <div class="display">
+      <app-todo-list [toDoList]="todos" (ChildEvent)="deleteToDo($event)">
+      </app-todo-list>
     </div>
-    <div class="form-items">
-      <label for="done">Done:</label>
-      <input
-        name="done"
-        type="checkbox"
-        #done="ngModel"
-        [(ngModel)]="todo.done"
-      />
-    </div>
-    <div class="form-items">
-      <button
-        type="button"
-        (click)="addToDo(todoForm)"
-        [disabled]="!todoForm.form.valid"
-      >
-        Add ToDo
-      </button>
-    </div>
-  </form>
-  <app-todo-list [toDoList]="todos" (ChildEvent)="deleteToDo($event)">
-  </app-todo-list>
+  </div>
 </div>

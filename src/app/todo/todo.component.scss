@@ -1,17 +1,42 @@
 .container {
-  width: calc(100vw - 300px);
+  width: calc(100vw - 100px);
   height: calc(100vh - 200px);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: rgba(144, 246, 215, 0.838);
+  border-radius: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.todos {
+  display: flex;
+  gap: 50px;
 }
 
 form {
+  width: 300px;
+  height: 170px;
   display: grid;
+  padding: 20px;
   grid-template-columns: 1fr;
   grid-template-rows: 3fr;
   gap: 10px;
+  background: #5ac0c1;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+input {
+  width: 200px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid #c2c2c2;
+  box-shadow: 1px 1px 4px #ebebeb;
+  border-radius: 3px;
+  padding: 7px;
+  outline: none;
 }
 .form-items {
   display: grid;
@@ -29,7 +54,22 @@ label {
 button {
   grid-column: 2;
   margin: auto;
-  background-color: black;
+  background-color: #41506b;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: "Amazon Ember", sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
 }
 
 button:disabled {
@@ -39,7 +79,11 @@ button:disabled {
 }
 
 table {
-  width: 600px;
+  width: 200px;
+}
+
+.table {
+  width: 200px;
 }
 th {
   text-align: left;
