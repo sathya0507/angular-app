@@ -46,7 +46,7 @@
           [(ngModel)]="todo.done"
         />
       </div>
-      <!-- <div class="form-items">
+      <div class="form-items">
         <button
           type="button"
           (click)="addToDo(todoForm)"
@@ -54,8 +54,8 @@
         >
           Add ToDo
         </button>
-      </div> -->
-      <div>
+      </div>
+      <!-- <div>
         <button
           mat-button-raised
           color="primary"
@@ -65,7 +65,7 @@
         >
           Add TO-DO
         </button>
-      </div>
+      </div> -->
     </form>
     <div class="display">
       <app-todo-list [toDoList]="todos" (ChildEvent)="deleteToDo($event)">
