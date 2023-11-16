@@ -1,61 +1,41 @@
 <!-- <div class="container"> -->
-<section>
-  <h1 class="title">{{ name }}</h1>
-  <div class="todos">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>{{ name }}</mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content>
     <form #todoForm="ngForm">
-      <div class="form-items">
-        <label for="title">ToDo:</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your Todo</mat-label>
         <input
-          name="title"
-          placeholder="Enter a ToDo"
+          matInput
           type="text"
           #title="ngModel"
+          name="title"
           required
           [(ngModel)]="todo.title"
         />
-        <div
-          *ngIf="title?.invalid && (title?.dirty || title?.touched)"
-          class="error"
-        >
-          <p>Tittle is required</p>
-        </div>
-      </div>
+        <mat-error *ngIf="title.invalid"> Todo tittle is required! </mat-error>
+      </mat-form-field>
 
-      <div class="form-items">
-        <label for="priority">Priority:</label>
+      <mat-form-field appearance="outline">
+        <mat-label>Priority</mat-label>
         <input
-          name="priority"
+          matInput
           type="number"
           #priority="ngModel"
+          name="priority"
           required
           [(ngModel)]="todo.priority"
         />
-        <div
-          *ngIf="priority?.invalid && (priority?.dirty || priority?.touched)"
-          class="error"
-        >
-          <p>Priority is required</p>
-        </div>
-      </div>
-      <div class="form-items">
-        <label for="done">Done:</label>
-        <input
-          name="done"
-          type="checkbox"
-          #done="ngModel"
-          [(ngModel)]="todo.done"
-        />
-      </div>
-      <div class="form-items">
-        <button
-          type="button"
-          (click)="addToDo(todoForm)"
-          [disabled]="!todoForm.form.valid"
-        >
-          Add ToDo
-        </button>
-      </div>
-      <!-- <div>
+        <mat-error *ngIf="priority.invalid">Enter Priority</mat-error>
+      </mat-form-field>
+
+      <mat-checkbox [checked]="todo.done" (change)="todo.done = !todo.done"
+        >Done</mat-checkbox
+      >
+      <div class="btn">
         <button
           mat-button-raised
           color="primary"
@@ -63,14 +43,14 @@
           (click)="addToDo(todoForm)"
           [disabled]="!todoForm.form.valid"
         >
-          Add TO-DO
+          Add Todo
         </button>
-      </div> -->
+      </div>
     </form>
-    <div class="display">
-      <app-todo-list [toDoList]="todos" (ChildEvent)="deleteToDo($event)">
-      </app-todo-list>
-    </div>
-  </div>
-  <!-- </div> -->
-</section>
+  </mat-card-content>
+</mat-card>
+
+<div class="display">
+  <app-todo-list [toDoList]="todos" (ChildEvent)="deleteToDo($event)">
+  </app-todo-list>
+</div>

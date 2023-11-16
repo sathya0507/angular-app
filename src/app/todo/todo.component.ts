@@ -34,7 +34,7 @@ export class TodoComponent {
 
   addToDo(todoForm: NgForm) {
     if (todoForm.valid) {
-      this.todos.push({ ...todoForm.value });
+      this.todos.push({ ...this.todo });
       console.log(this.todos);
       todoForm.reset();
     } else {
