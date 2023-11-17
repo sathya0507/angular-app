@@ -1,14 +1,34 @@
-<ng-template [ngIf]="loading">
-  <h1>Loading...</h1>
-</ng-template>
-<ng-template [ngIf]="!loading">
-  <h1>Hello Reactive Forms!</h1>
-</ng-template>
-<!-- <ng-template [ngIf]="true" ]>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam, voluptas
-    recusandae? Eum, cupiditate eveniet quisquam voluptate quaerat inventore
-    ipsum unde aut deleniti? Doloribus, soluta? Optio hic accusamus tenetur
-    libero reiciendis?
-  </p>
-</ng-template> -->
+<h1>Login</h1>
+<div class="container">
+  <form [formGroup]="loginForm">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" formControlName="email" />
+      <mat-error>Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        autocomplete="on"
+      />
+      <mat-error>Password is required</mat-error>
+      <mat-error>minimum 8 characters is required</mat-error>
+    </mat-form-field>
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="formSubmit()"
+        [disabled]="loginForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  {{ loginForm.value | json }}
+</div>

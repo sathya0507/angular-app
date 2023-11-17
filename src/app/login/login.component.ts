@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IloginUser } from '../models/login';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +8,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  loading = true;
-  constructor() {}
+  loginUser: IloginUser;
+  loginForm!: FormGroup;
+  constructor() {
+    this.loginUser = {} as IloginUser;
+  }
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
+    this.loginForm = new FormGroup({
+      email: new FormControl(this.loginUser.email, [
+        Validators.required,
+        // Validators.minLength(1),
+        // Validators.maxLength(100),
+      ]),
+      password: new FormControl(this.loginUser.password, [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    });
   }
-  ngAfterViewInit() {
-    // this.loading = false;
-  }
+  ngAfterViewInit() {}
   ngOnDestroy(): void {}
+  formSubmit() {
+    console.log(this.loginForm.value);
+  }
 }
