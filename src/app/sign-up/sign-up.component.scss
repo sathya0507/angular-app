@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+}
+
+button {
+  margin-top: 40px;
+  border-radius: 30px;
+}
+
+button:disabled {
+  background-color: rgb(219, 186, 186);
+}

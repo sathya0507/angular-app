@@ -12,6 +12,7 @@ import { PropercasePipe } from './shared/pipes/propercase.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppModuleMaterials } from './app.material.module';
 import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     TodoListComponent,
     PropercasePipe,
     LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

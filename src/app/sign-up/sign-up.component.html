@@ -1,0 +1,54 @@
+<h1>Sign Up</h1>
+<div class="container">
+  <form [formGroup]="signUpForm">
+    
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" />
+      <mat-error>Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" formControlName="email" />
+      <mat-error>Email is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        autocomplete="on"
+      />
+      <mat-error>Password is required</mat-error>
+      <mat-error>minimum 8 characters is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="confirm"
+        autocomplete="on"
+      />
+      <mat-error>Password is required</mat-error>
+      <mat-error>minimum 8 characters is required</mat-error>
+    </mat-form-field>
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="formSubmit()"
+        [disabled]="signUpForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  {{ signUpForm.value | json }}
+</div>
