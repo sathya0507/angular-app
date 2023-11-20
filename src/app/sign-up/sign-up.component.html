@@ -1,7 +1,6 @@
 <h1>Sign Up</h1>
 <div class="container">
-  <form [formGroup]="signUpForm">
-    
+  <form [formGroup]="signUpForm" #form="ngForm">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input matInput type="text" placeholder="Name" formControlName="name" />
@@ -10,8 +9,14 @@
 
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input matInput type="text" placeholder="Email" formControlName="email" />
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
       <mat-error>Email is required</mat-error>
+      <mat-error>Email is not valid</mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -19,12 +24,14 @@
       <input
         matInput
         type="password"
+        x
         placeholder="Password"
         formControlName="password"
         autocomplete="on"
+        id="password"
+        name="password"
       />
       <mat-error>Password is required</mat-error>
-      <mat-error>minimum 8 characters is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>

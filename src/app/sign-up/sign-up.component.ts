@@ -10,21 +10,22 @@ import { IsignUp } from '../models/signup';
 export class SignUpComponent implements OnInit, OnDestroy {
   signUpUser: IsignUp;
   signUpForm!: FormGroup;
+  emailRgex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  // emailRegex = new RegExp(
+  //   /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+  //   'gm'
+  // );
   constructor() {
     this.signUpUser = {} as IsignUp;
   }
   ngOnInit(): void {
     this.signUpForm = new FormGroup({
-      name: new FormControl(this.signUpUser.name, [
-        Validators.required,
-        // Validators.minLength(1),
-        // Validators.maxLength(100),
-      ]),
+      name: new FormControl(this.signUpUser.name, [Validators.required]),
 
       email: new FormControl(this.signUpUser.email, [
         Validators.required,
-        // Validators.minLength(1),
-        // Validators.maxLength(100),
+        Validators.pattern(this.emailRgex),
       ]),
 
       password: new FormControl(this.signUpUser.password, [
