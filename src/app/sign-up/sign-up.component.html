@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<!-- <h1>Sign Up</h1>
 <div class="container">
   <form [formGroup]="signUpForm" #form="ngForm">
     <mat-form-field>
@@ -43,9 +43,66 @@
         formControlName="confirm"
         autocomplete="on"
       />
-      <mat-error>Password is required</mat-error>
-      <mat-error>minimum 8 characters is required</mat-error>
+      <mat-error>Confirm Password is required</mat-error>
+      <mat-error>Password doesn't match</mat-error>
     </mat-form-field>
+    <div>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="formSubmit()"
+        [disabled]="signUpForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  {{ signUpForm.value | json }}
+</div> -->
+
+<h1>Sign Up</h1>
+<div class="container">
+  <form [formGroup]="signUpForm" #form="ngForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" />
+      <mat-error>Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <mat-error>Email is required</mat-error>
+      <mat-error>Email is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error>Password is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="confirm"
+      />
+      <mat-error>Password doesn't match</mat-error>
+    </mat-form-field>
+
     <div>
       <button
         mat-raised-button
