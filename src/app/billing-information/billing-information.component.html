@@ -1,0 +1,60 @@
+<!-- billing-information.component.html -->
+<form [formGroup]="infoForm" (ngSubmit)="formSubmit()">
+  <div class="billing-container">
+    <div class="billing-title">Billing Information</div>
+
+    <input
+      type="text"
+      formControlName="firstName"
+      class="billing-input-col"
+      placeholder="First Name"
+    />
+    <input
+      type="text"
+      formControlName="lastName"
+      class="billing-input-col"
+      placeholder="Last Name"
+    />
+    <input
+      type="text"
+      formControlName="address"
+      class="billing-input"
+      placeholder="Address"
+    />
+    <input
+      type="text"
+      formControlName="addressLineTwo"
+      class="billing-input"
+      placeholder="Address Line 2"
+    />
+    <input
+      type="text"
+      formControlName="city"
+      class="billing-input"
+      placeholder="City"
+    />
+    <input
+      type="text"
+      formControlName="country"
+      class="billing-input"
+      placeholder="Country/Region"
+    />
+    <input
+      type="text"
+      formControlName="state"
+      class="billing-input-col"
+      placeholder="State/Province"
+    />
+    <input
+      type="text"
+      formControlName="postal"
+      class="billing-input-col"
+      placeholder="Postal/Zip Code"
+    />
+
+    <button type="submit" class="billing-submit" (click)="formSubmit()">
+      Submit
+    </button>
+  </div>
+</form>
+{{ infoForm.value | json }}
