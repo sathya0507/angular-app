@@ -11,7 +11,6 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { PropercasePipe } from './shared/pipes/propercase.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppModuleMaterials } from './app.material.module';
-import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { BillingInformationComponent } from './billing-information/billing-information.component';
 import { HeaderComponent } from './core/component/header/header.component';
@@ -27,7 +26,6 @@ import { HomeComponent } from './core/component/home/home.component';
     ChildComponent,
     TodoListComponent,
     PropercasePipe,
-    LoginComponent,
     SignUpComponent,
     BillingInformationComponent,
     HeaderComponent,

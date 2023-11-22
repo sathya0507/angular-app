@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/component/home/home.component';
-import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TodoComponent } from './todo/todo.component';
+import { BillingInformationComponent } from './billing-information/billing-information.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((c) => c.LoginModule),
+  },
   { path: 'signup', component: SignUpComponent },
   { path: 'todo', component: TodoComponent },
+  { path: 'billing', component: BillingInformationComponent },
 ];
 
 @NgModule({
