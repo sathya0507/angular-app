@@ -13,9 +13,20 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./login/login.module').then((c) => c.LoginModule),
   },
-  { path: 'signup', component: SignUpComponent },
-  { path: 'todo', component: TodoComponent },
-  { path: 'billing', component: BillingInformationComponent },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('./sign-up/sign-up-routing.module').then(
+        (c) => c.SignUpRoutingModule
+      ),
+  },
+  {
+    path: 'billing',
+    loadChildren: () =>
+      import('./billing-information/billing-information-routing.module').then(
+        (c) => c.BillingInformationRoutingModule
+      ),
+  },
 ];
 
 @NgModule({
