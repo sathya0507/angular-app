@@ -15,6 +15,7 @@ import { AppModuleMaterials } from './app.material.module';
 import { HeaderComponent } from './core/component/header/header.component';
 import { FooterComponent } from './core/component/footer/footer.component';
 import { HomeComponent } from './core/component/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { HomeComponent } from './core/component/home/home.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppModuleMaterials,
   ],
   providers: [],
