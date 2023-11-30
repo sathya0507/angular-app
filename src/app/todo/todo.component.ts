@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Itodo } from '../models/todo';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'ui-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit {
   name = 'Angular Template Driven Forms';
   todo: Itodo = {
     title: '',
@@ -31,6 +32,16 @@ export class TodoComponent {
       done: true,
     },
   ];
+
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
+    this.todoService.getTodo().subscribe({
+      next: (todo: any) => {
+        console.log(todo);
+      },
+    });
+  }
 
   addToDo(todoForm: NgForm) {
     if (todoForm.valid) {

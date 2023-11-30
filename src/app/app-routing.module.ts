@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/component/home/home.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { TodoComponent } from './todo/todo.component';
-import { BillingInformationComponent } from './billing-information/billing-information.component';
+// import { SignUpComponent } from './sign-up/sign-up.component';
+// import { TodoComponent } from './todo/todo.component';
+// import { BillingInformationComponent } from './billing-information/billing-information.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +26,11 @@ export const routes: Routes = [
       import('./billing-information/billing-information-routing.module').then(
         (c) => c.BillingInformationRoutingModule
       ),
+  },
+  {
+    path: 'todo',
+    loadChildren: () =>
+      import('./todo/todo-routing.module').then((c) => c.TodoRoutingModule),
   },
 ];
 
