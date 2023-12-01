@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/component/home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { TodoComponent } from './todo/todo.component';
 // import { BillingInformationComponent } from './billing-information/billing-information.component';
@@ -35,7 +36,15 @@ export const routes: Routes = [
   {
     path: 'user',
     loadChildren: () =>
-      import('./user-details/user-details-routing.module').then((c) => c.UserDetailsRoutingModule),
+      import('./user-details/user-details-routing.module').then(
+        (c) => c.UserDetailsRoutingModule
+      ),
+  },
+
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PageNotFoundComponent,
   },
 ];
 

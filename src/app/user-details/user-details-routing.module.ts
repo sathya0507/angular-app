@@ -20,6 +20,7 @@ const routes: Routes = [
     component: UserDetailsComponent,
 
     children: [
+      { path: '', redirectTo: 'view-user', pathMatch: 'full' },
       { path: 'add-user', component: AddUserComponent },
       { path: 'view-user', component: ViewUserComponent },
     ],

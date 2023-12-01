@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IUserFormData } from '../../models/userformdata';
+import { GetUsersService } from 'src/app/services/get-users.service';
 
 @Component({
   selector: 'app-add-user',
@@ -11,7 +12,8 @@ export class AddUserComponent implements OnInit, OnDestroy {
   userInfo: IUserFormData;
   userForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  user!: IUserFormData;
+  constructor(private fb: FormBuilder, private userservice: GetUsersService) {
     this.userInfo = {} as IUserFormData;
   }
 
@@ -23,7 +25,15 @@ export class AddUserComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.userForm.valid) {
-      console.log(this.userForm.value);
+      this.user = this.userForm.value;
+      this.userservice.updateUser(this.user).subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { GetUsersService } from 'src/app/services/get-users.service';
 
 @Component({
   selector: 'app-view-user',
   templateUrl: './view-user.component.html',
-  styleUrls: ['./view-user.component.scss']
+  styleUrls: ['./view-user.component.scss'],
 })
 export class ViewUserComponent implements OnInit {
   users: any[] = [];
@@ -28,16 +27,13 @@ export class ViewUserComponent implements OnInit {
     'bs',
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private userservice: GetUsersService) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/users').subscribe(
-      (data) => {
+    this.userservice.getUser().subscribe({
+      next: (data) => {
         this.users = data;
       },
-      (error) => {
-        this.error = 'Error fetching user data.';
-      }
-    );
+    });
   }
 }
