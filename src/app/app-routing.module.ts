@@ -32,6 +32,11 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./todo/todo-routing.module').then((c) => c.TodoRoutingModule),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./user-details/user-details-routing.module').then((c) => c.UserDetailsRoutingModule),
+  },
 ];
 
 @NgModule({

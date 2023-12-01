@@ -1,0 +1,25 @@
+<div class="container">
+  <header class="site-header">
+    <div class="header__content--flow">
+      <section class="header-content--left">
+        <span class="logo-text">User Maintance</span>
+        <button class="nav-toggle">
+          <span class="toggle--icon"></span>
+        </button>
+      </section>
+      <section class="header-content--right">
+        <nav class="header-nav" role="navigation">
+          <ul class="nav__list" aria-expanded="false">
+            <li class="list-item">
+              <a class="nav__link" [routerLink]="'add-user'">Add-User</a>
+            </li>
+            <li class="list-item">
+              <a class="nav__link" [routerLink]="'view-user'">View User</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </header>
+</div>
+<router-outlet></router-outlet>

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TodoService {
-  url = 'https://jsonplaceholder.typicode.com/todos';
+  url = 'http://localhost:3000/posts';
   constructor(private http: HttpClient) {}
   getTodo(): Observable<any> {
     return this.http.get(this.url);

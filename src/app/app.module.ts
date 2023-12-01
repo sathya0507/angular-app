@@ -16,6 +16,9 @@ import { HeaderComponent } from './core/component/header/header.component';
 import { FooterComponent } from './core/component/footer/footer.component';
 import { HomeComponent } from './core/component/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,12 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     AppModuleMaterials,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    BrowserModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
