@@ -1,0 +1,67 @@
+<!-- src/app/app.component.html -->
+<div class="container my-5">
+  <h1 class="text-center title">Weather in</h1>
+  <form class="search-loaction" (submit)="updateWeather()">
+    <input
+      type="text"
+      [(ngModel)]="cityValue"
+      name="city"
+      placeholder="What city?"
+      autocomplete="off"
+      class="form-control text-muted form-rounded p-4 shadow-sm"
+    />
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+  </form>
+
+  <div class="card rounded my-3 shadow-lg d-none back-card">
+    <div class="card-top text-center">
+      <div class="city-name my-3">
+        <p>{{ cityName }}</p>
+        <span>...</span>
+      </div>
+      <img src="{{ timeImageSrc }}" alt="" class="card-img-top time" />
+    </div>
+
+    <div class="card-body">
+      <div class="card-mid row">
+        <div class="col-8 text-center temp">
+          <span>{{ spitOutCelcius(weatherData?.main?.temp) }}&deg;C</span>
+        </div>
+        <div class="col-4 condition-temp">
+          <p class="condition">{{ weatherData?.weather[0]?.description }}</p>
+          <p class="high">
+            {{ spitOutCelcius(weatherData?.main?.temp_max) }}&deg;C
+          </p>
+          <p class="low">
+            {{ spitOutCelcius(weatherData?.main?.temp_min) }}&deg;C
+          </p>
+        </div>
+      </div>
+
+      <div class="icon-container card shadow mx-auto">
+        <img src="{{ weatherIconSrc }}" alt="" />
+      </div>
+      <div class="card-bottom px-5 py-4 row">
+        <div class="col text-center">
+          <p>{{ spitOutCelcius(weatherData?.main?.feels_like) }}&deg;C</p>
+          <span>Feels Like</span>
+        </div>
+        <div class="col text-center">
+          <p>{{ weatherData?.main?.humidity }}%</p>
+          <span>Humidity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p #name style="font-size: 1.5rem" class="bgred">Hello {{ name1 }}</p>
+  <p #name style="font-size: 1.5rem" class="bgred">Hello {{ name1 }}</p>
+  <p #name style="font-size: 1.5rem" class="bgred">Hello {{ name1 }}</p>
+  <div>
+    <button (click)="buttonViewChildren()">@View Children</button>
+    <button (click)="buttonViewChild()">@View Children</button>
+  </div>
+  <!-- <p style="font-size: 1.5rem" [hidden]="status">Hello {{ name1 }}</p> -->
+</div>

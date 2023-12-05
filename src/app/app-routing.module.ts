@@ -40,6 +40,13 @@ export const routes: Routes = [
         (c) => c.UserDetailsRoutingModule
       ),
   },
+  {
+    path: 'weather',
+    loadChildren: () =>
+      import('./weather/weather-routing.module').then(
+        (c) => c.WeatherRoutingModule
+      ),
+  },
 
   {
     path: '**',
