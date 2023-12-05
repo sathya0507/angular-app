@@ -33,5 +33,23 @@
       <a [routerLink]="'/signup'">Dont have an account Sign Up!</a>
     </div>
   </form>
-  {{ loginForm.value | json }}
+  <!-- {{ loginForm.value | json }} -->
 </div>
+
+<!-- <ng-template [ngIf]="submit">
+  <p>{{ loginForm.value | json }}</p>
+</ng-template> -->
+
+<!-- <ul>
+  <li *ngFor="let item of items">
+    {{ item }}
+  </li>
+</ul> -->
+
+<ul>
+  <ng-container *ngFor="let item of items">
+    <li *ngIf="item">
+      {{ item }}
+    </li>
+  </ng-container>
+</ul>

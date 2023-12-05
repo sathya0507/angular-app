@@ -10,6 +10,10 @@ import { IloginUser } from '../models/login';
 export class LoginComponent implements OnInit, OnDestroy {
   loginUser: IloginUser;
   loginForm!: FormGroup;
+  items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  submit: boolean = false;
+
   constructor() {
     this.loginUser = {} as IloginUser;
   }
@@ -27,8 +31,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
   ngAfterViewInit() {}
+
   ngOnDestroy(): void {}
+
   formSubmit() {
+    this.submit = true;
     console.log(this.loginForm.value);
   }
 }
