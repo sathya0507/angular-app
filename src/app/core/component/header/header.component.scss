@@ -223,3 +223,9 @@ body {
     width: calc(var(--full-width) - (var(--space-1) * 2));
   }
 }
+
+.active {
+  background-color: rgb(38, 186, 235);
+  color: black;
+  font-weight: 700;
+}
