@@ -9,8 +9,8 @@ export interface IUserFormData {
     city: string;
     zipcode: string;
     geo: {
-      latitude: string;
-      longitude: string;
+      lat: string;
+      lng: string;
     };
   };
   phone: string;

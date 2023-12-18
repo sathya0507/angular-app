@@ -46,6 +46,7 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     BrowserModule,
     MatTableModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

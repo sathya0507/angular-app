@@ -1,5 +1,6 @@
+// billing-information.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IbillInfo } from '../models/billinfo';
 
 @Component({
@@ -8,29 +9,46 @@ import { IbillInfo } from '../models/billinfo';
   styleUrls: ['./billing-information.component.scss'],
 })
 export class BillingInformationComponent implements OnInit, OnDestroy {
-  infoUser: IbillInfo;
+  infoUser: IbillInfo = {
+    firstName: '',
+    lastName: '',
+    address: '',
+    addressLineTwo: '',
+    state: '',
+    district: '',
+    postal: '',
+    skills: {
+      language: '',
+      yearofexperience: 0,
+    },
+  };
   infoForm!: FormGroup;
-  constructor() {
-    this.infoUser = {} as IbillInfo;
-  }
+
+  // states: any[] = [];
+
+  constructor() {}
+
   ngOnInit(): void {
     this.infoForm = new FormGroup({
       firstName: new FormControl(this.infoUser.firstName, [
         Validators.required,
       ]),
-      lastName: new FormControl(this.infoUser.lastName, [Validators.required]),
-      address: new FormControl(this.infoUser.address, [Validators.required]),
-      addressLineTwo: new FormControl(this.infoUser.addressLineTwo, [
-        Validators.required,
+      lastName: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
+      addressLineTwo: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      district: new FormControl('', [Validators.required]),
+      postal: new FormControl('', [Validators.required]),
+      skills: new FormArray([
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required),
+        new FormControl(null, Validators.required),
       ]),
-      city: new FormControl(this.infoUser.city, [Validators.required]),
-      country: new FormControl(this.infoUser.country, [Validators.required]),
-      state: new FormControl(this.infoUser.state, [Validators.required]),
-      postal: new FormControl(this.infoUser.postal, [Validators.required]),
     });
   }
-  ngAfterViewInit() {}
+
   ngOnDestroy(): void {}
+
   formSubmit() {
     console.log(this.infoForm.value);
   }

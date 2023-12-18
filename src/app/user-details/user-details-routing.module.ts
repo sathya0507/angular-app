@@ -13,6 +13,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 const routes: Routes = [
   {
@@ -39,6 +40,7 @@ const routes: Routes = [
     MatCardModule,
     ReactiveFormsModule,
     MatTableModule,
+    ToastrModule.forRoot(),
   ],
 })
 export class UserDetailsRoutingModule {}

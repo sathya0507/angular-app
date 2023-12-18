@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IloginUser } from '../models/login';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   submit: boolean = false;
 
-  constructor() {
+  constructor(private loginService: LoginService) {
     this.loginUser = {} as IloginUser;
   }
   ngOnInit(): void {
@@ -35,7 +36,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   formSubmit() {
+    this.loginService.userLogin();
     this.submit = true;
     console.log(this.loginForm.value);
+  }
+  logout() {
+    this.loginService.userLogout();
   }
 }

@@ -3,8 +3,11 @@ export interface IbillInfo {
   lastName: string;
   address: string;
   addressLineTwo: string;
-  city: string;
-  country: string;
   state: string;
+  district: string;
   postal: string;
+  skills: {
+    language: string;
+    yearofexperience: number;
+  };
 }

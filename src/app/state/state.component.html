@@ -1,0 +1,15 @@
+<form [formGroup]="dropdownForm">
+  <label for="selectedState">Select State:</label>
+  <select formControlName="selectedState">
+    <option *ngFor="let state of states" [value]="state.stateid">
+      {{ state.name }}
+    </option>
+  </select>
+
+  <label for="selectedDistrict">Select District:</label>
+  <select formControlName="selectedDistrict">
+    <option *ngFor="let district of districts" [value]="district.id">
+      {{ district.name }}
+    </option>
+  </select>
+</form>

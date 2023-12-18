@@ -27,18 +27,7 @@
       class="billing-input"
       placeholder="Address Line 2"
     />
-    <input
-      type="text"
-      formControlName="city"
-      class="billing-input"
-      placeholder="City"
-    />
-    <input
-      type="text"
-      formControlName="country"
-      class="billing-input"
-      placeholder="Country/Region"
-    />
+
     <input
       type="text"
       formControlName="state"
@@ -47,14 +36,41 @@
     />
     <input
       type="text"
+      formControlName="district"
+      class="billing-input"
+      placeholder="district"
+    />
+    <input
+      type="text"
       formControlName="postal"
       class="billing-input-col"
       placeholder="Postal/Zip Code"
     />
+
+    <div formArrayName="skills">
+      <h4>Add Skills</h4>
+      <ng-container *ngFor="let skill of infoForm.get('skills')['controls'] ">
+        <input type="text" placeholder="add skill" />
+      </ng-container>
+    </div>
+
+    
 
     <button type="submit" class="billing-submit" (click)="formSubmit()">
       Submit
     </button>
   </div>
 </form>
-{{ infoForm.value | json }}
+<!-- <div>
+  <h2>States</h2>
+  <ul>
+    <li *ngFor="let state of states">{{ state.name }}</li>
+  </ul>
+</div> -->
+
+<!-- {{ infoForm.value | json }} -->
+
+<!-- billing-information.component.html -->
+
+
+<!--  -->

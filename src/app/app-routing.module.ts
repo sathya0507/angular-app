@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/component/home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './core/guards/auth.guard';
 // import { SignUpComponent } from './sign-up/sign-up.component';
 // import { TodoComponent } from './todo/todo.component';
 // import { BillingInformationComponent } from './billing-information/billing-information.component';
@@ -35,6 +36,7 @@ export const routes: Routes = [
   },
   {
     path: 'user',
+    // canActivate: [AuthGuard],
     loadChildren: () =>
       import('./user-details/user-details-routing.module').then(
         (c) => c.UserDetailsRoutingModule
@@ -46,6 +48,11 @@ export const routes: Routes = [
       import('./weather/weather-routing.module').then(
         (c) => c.WeatherRoutingModule
       ),
+  },
+  {
+    path: 'state',
+    loadChildren: () =>
+      import('./state/state-routing.module').then((c) => c.StateRoutingModule),
   },
 
   {

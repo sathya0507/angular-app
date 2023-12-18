@@ -33,6 +33,7 @@ export class ViewUserComponent implements OnInit {
     this.userservice.getUser().subscribe({
       next: (data) => {
         this.users = data;
+        console.log(this.users);
       },
     });
   }
